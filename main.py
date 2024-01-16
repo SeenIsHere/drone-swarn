@@ -26,13 +26,12 @@ swarm.drone_objects[2].set_controller_LED(0, 0, 255, 100)
 
 
 def on_press(key):
-    print(key)
     if key == Key.backspace:
         for drone in swarm.drone_objects:
             drone: Drone = drone
             drone.emergency_stop()
         swarm.close_all()
-        return False
+        exit()
 
 def kill_drone():
     while True:
@@ -40,14 +39,16 @@ def kill_drone():
             on_press=on_press) as listener:
             listener.join()
 
-def drone1(drone: Drone):
+def left_side_drone(drone: Drone):
     drone.takeoff()
+    drone.hover(1)
+
+    drone.triangle(20, 2, -1)
+
     drone.hover(1)
 
     drone.move_forward(30)
     time.sleep(3)
-
-   
 
     drone.flip("back")
     time.sleep(4)
@@ -58,20 +59,47 @@ def drone1(drone: Drone):
     drone.hover(1)
 
     drone.turn_degree(180)
-
     drone.move_forward(30)
     time.sleep(3)
     
     drone.turn_degree(180)
     drone.land()
 
-def drone2(drone: Drone):
+def right_side_drone(drone: Drone):
     drone.takeoff()
+    drone.hover(1)
+
+    drone.triangle(20, 2, 1)
+
+    drone.hover(1)
+
+    drone.move_forward(30)
+    time.sleep(3)
+
+    drone.flip("back")
+    time.sleep(4)
+
+    drone.set_throttle(65)
+    time.sleep(3)
+
+    drone.hover(1)
+
+    drone.turn_degree(180)
+    drone.move_forward(30)
+    time.sleep(3)
+    
+    drone.turn_degree(180)
+    drone.land()
+
+def middle_drone(drone: Drone):
+    drone.takeoff()
+    drone.hover(1)
+
+    time.sleep(4)
     drone.hover(1)
 
     drone.move_backward(30)
     time.sleep(3)
-
     drone.flip("front")
     time.sleep(4)
 
@@ -89,34 +117,11 @@ def drone2(drone: Drone):
     drone.land()
 
 
-def drone3(drone: Drone):
-    drone.takeoff()
-    drone.hover(1)
-
-    drone.move_forward(30)
-    time.sleep(3)
-
-
-    drone.flip("back")
-    time.sleep(4)
-
-    drone.set_throttle(65)
-    time.sleep(3)
-
-    drone.hover(1)
-
-    drone.turn_degree(180)
-
-    drone.move_forward(30)
-    time.sleep(3)
-    
-    drone.turn_degree(180)
-    drone.land()
-
-drone_funcs = [drone1, drone2, drone3]
+drone_funcs = [left_side_drone, middle_drone, right_side_drone]
 
 drone_threads = [Thread(target=func, args=(drone,)) for drone, func in zip(swarm.drone_objects, drone_funcs)]
 
 kill = Thread(target=kill_drone)
 
 t = swarm.start_threading(*drone_threads, kill)
+
