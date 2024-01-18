@@ -1,12 +1,14 @@
-from codrone_edu.swarm import *
 from codrone_edu.drone import *
+from codrone_edu.swarm import Drone
 from threading import Thread
 from hb import play_hb
-from rand_move import random_drone_sequence
 from pynput.keyboard import Key, Listener
 import time
+from func import logflight, EvilSwarm
 
-swarm = Swarm()
+program_finished = False
+
+swarm: Drone = EvilSwarm()
 swarm.auto_connect()
 
 if len(swarm.drone_objects) < 3:
@@ -17,13 +19,12 @@ if not all([drone.get_battery() > 70 for drone in swarm.drone_objects]):
     print("Please charge all drones")
     exit()
 
-swarm.drone_objects[0].set_drone_LED(255, 0, 0, 100)
-swarm.drone_objects[0].set_controller_LED(255, 0, 0, 100)
-swarm.drone_objects[1].set_drone_LED(0, 255, 0, 100)
-swarm.drone_objects[1].set_controller_LED(0, 255, 0, 100)
-swarm.drone_objects[2].set_drone_LED(0, 0, 255, 100)
-swarm.drone_objects[2].set_controller_LED(0, 0, 255, 100)
+#In order of drone connections
+colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
 
+for color, drone in zip(colors, swarm.drone_objects):
+    drone.set_drone_LED(*color, 100)
+    drone.set_controller_LED(*color, 100)
 
 def on_press(key):
     if key == Key.backspace:
@@ -31,19 +32,22 @@ def on_press(key):
             drone: Drone = drone
             drone.emergency_stop()
         swarm.close_all()
-        exit()
 
 def kill_drone():
-    while True:
+    while not program_finished:
         with Listener(
             on_press=on_press) as listener:
             listener.join()
+    exit()
 
 def left_side_drone(drone: Drone):
     drone.takeoff()
     drone.hover(1)
 
-    drone.triangle(20, 2, -1)
+    drone.triangle(30, 2, -1)
+
+    drone.send_absolute_position(0, 0, 1.5, 0.5, 0, 0)
+    time.sleep(1)
 
     drone.hover(1)
 
@@ -69,7 +73,10 @@ def right_side_drone(drone: Drone):
     drone.takeoff()
     drone.hover(1)
 
-    drone.triangle(20, 2, 1)
+    drone.triangle(30, 2, 1)
+
+    drone.send_absolute_position(0, 0, 1.5, 0.5, 0, 0)
+    time.sleep(1)
 
     drone.hover(1)
 
@@ -100,6 +107,10 @@ def middle_drone(drone: Drone):
 
     drone.move_backward(30)
     time.sleep(3)
+
+    drone.send_absolute_position(0, 0, 1.5, 0.5, 0, 0)
+    time.sleep(1)
+
     drone.flip("front")
     time.sleep(4)
 
@@ -123,5 +134,5 @@ drone_threads = [Thread(target=func, args=(drone,)) for drone, func in zip(swarm
 
 kill = Thread(target=kill_drone)
 
-t = swarm.start_threading(*drone_threads, kill)
 
+t = swarm.start_threading(*drone_threads, kill)

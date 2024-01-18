@@ -21,3 +21,5 @@ Flight Log: 1/5/2024 10:40 ||| didnt work
 Flight Log: 1/5/2024 10:42 ||| odd
 Flight Log: 1/5/2024 10:45 ||| sus
 Flight Log: 1/5/2024 10:47 ||| didnt work again for some reason
+Flight Log: 1/18/2024 10:9 ||| & "C:/Program Files/Python311/python.exe" "//dione/Students$/devi8398/My Documents/potato/main.py"
+Flight Log: 1/18/2024 10:10 ||| middle drone low on potatoes

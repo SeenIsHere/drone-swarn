@@ -1,4 +1,7 @@
 import time
+from codrone_edu.swarm import Swarm
+
+EvilSwarm: Swarm = Swarm
 
 def logflight():
     year, month, day, hour, min, *_ = time.localtime()
