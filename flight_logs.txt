@@ -1,23 +1,23 @@
-Flight Log: 1/5/2024 9:56 ||| test
-Flight Log: 1/5/2024 9:57 ||| didnt circle
-Flight Log: 1/5/2024 9:57 ||| Didn't move at all
-Flight Log: 1/5/2024 9:59 ||| NONE
-Flight Log: 1/5/2024 10:0 ||| none
-Flight Log: 1/5/2024 10:1 ||| didnt circle
-Flight Log: 1/5/2024 10:2 ||| turned left
-Flight Log: 1/5/2024 10:5 ||| didnt circle idk why
-Flight Log: 1/5/2024 10:8 ||| controller issue
-Flight Log: 1/5/2024 10:9 ||| idk
-Flight Log: 1/5/2024 10:12 ||| immediatlery spinned
-Flight Log: 1/5/2024 10:13 ||| worked perfect
-Flight Log: 1/5/2024 10:16 ||| went way too fast back
-Flight Log: 1/5/2024 10:22 ||| worked but didn't fly back
-Flight Log: 1/5/2024 10:25 ||| idk
-Flight Log: 1/5/2024 10:31 ||| n
-Flight Log: 1/5/2024 10:33 ||| forgot time.sleep
-Flight Log: 1/5/2024 10:37 ||| ran to get a value
-Flight Log: 1/5/2024 10:39 ||| human interuption
-Flight Log: 1/5/2024 10:40 ||| didnt work
-Flight Log: 1/5/2024 10:42 ||| odd
-Flight Log: 1/5/2024 10:45 ||| sus
-Flight Log: 1/5/2024 10:47 ||| didnt work again for some reason
+Flight Log: 1/10/2024 9:106 ||| test
+Flight Log: 1/10/2024 9:107 ||| didnt circle
+Flight Log: 1/10/2024 9:107 ||| Didn't move at all
+Flight Log: 1/10/2024 9:109 ||| NONE
+Flight Log: 1/10/2024 10:0 ||| none
+Flight Log: 1/10/2024 10:1 ||| didnt circle
+Flight Log: 1/10/2024 10:2 ||| turned left
+Flight Log: 1/10/2024 10:10 ||| didnt circle idk why
+Flight Log: 1/10/2024 10:8 ||| controller issue
+Flight Log: 1/10/2024 10:9 ||| idk
+Flight Log: 1/10/2024 10:12 ||| immediatlery spinned
+Flight Log: 1/10/2024 10:13 ||| worked perfect
+Flight Log: 1/10/2024 10:16 ||| went way too fast back
+Flight Log: 1/10/2024 10:22 ||| worked but didn't fly back
+Flight Log: 1/10/2024 10:210 ||| idk
+Flight Log: 1/10/2024 10:31 ||| n
+Flight Log: 1/10/2024 10:33 ||| forgot time.sleep
+Flight Log: 1/10/2024 10:37 ||| ran to get a value
+Flight Log: 1/10/2024 10:39 ||| human interuption
+Flight Log: 1/10/2024 10:40 ||| didnt work
+Flight Log: 1/10/2024 10:42 ||| odd
+Flight Log: 1/10/2024 10:410 ||| sus
+Flight Log: 1/10/2024 10:47 ||| didnt work again for some reason
