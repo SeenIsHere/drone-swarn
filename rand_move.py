@@ -3,7 +3,7 @@ from codrone_edu.drone import *
 import codrone_edu.swarm
 from time import sleep
 from func import logflight
-from random import randint
+import random
 
 def random_move(drone):
     random.choice([
@@ -21,7 +21,7 @@ def random_move(drone):
 def random_drone_sequence(drone):
     drone.takeoff()
 
-    randomRGB = [randint(0, 255), randint(0, 255), randint(0, 255)]
+    randomRGB = [random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)]
     drone.set_drone_LED(*randomRGB, 100)
     drone.set_controller_LED(*randomRGB, 100)
 
